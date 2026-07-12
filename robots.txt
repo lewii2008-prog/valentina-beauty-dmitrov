@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lewii2008-prog.github.io/valentina-beauty-dmitrov/sitemap.xml

@@ -1,6 +1,24 @@
 const PHONE_DISPLAY = '+7 (977) 613-13-03';
 const PHONE_RAW = '+79776131303';
 
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealItems = document.querySelectorAll('.section, .benefits, .contact-section');
+if (reducedMotion || !('IntersectionObserver' in window)) {
+  revealItems.forEach((item) => item.classList.add('is-visible'));
+} else {
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('is-visible');
+      observer.unobserve(entry.target);
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -48px' });
+  revealItems.forEach((item) => {
+    item.classList.add('reveal-on-scroll');
+    revealObserver.observe(item);
+  });
+}
+
 const menuButton = document.querySelector('[data-menu-button]');
 const menuLabel = document.querySelector('[data-menu-label]');
 const nav = document.querySelector('[data-nav]');
