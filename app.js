@@ -49,7 +49,11 @@ document.querySelectorAll('[data-copy-phone]').forEach((button) => button.addEve
 
 document.querySelectorAll('[data-filter]').forEach((button) => button.addEventListener('click', () => {
   const filter = button.dataset.filter;
-  document.querySelectorAll('[data-filter]').forEach((item) => item.classList.toggle('is-active', item === button));
+  document.querySelectorAll('[data-filter]').forEach((item) => {
+    const active = item === button;
+    item.classList.toggle('is-active', active);
+    item.setAttribute('aria-pressed', String(active));
+  });
   document.querySelectorAll('[data-gallery-item]').forEach((item) => { item.hidden = filter !== 'all' && item.dataset.category !== filter; });
 }));
 
@@ -59,7 +63,7 @@ document.querySelectorAll('[data-price-tab]').forEach((button) => button.addEven
 }));
 
 document.querySelectorAll('[data-price-toggle]').forEach((button) => button.addEventListener('click', () => {
-  const more = button.parentElement?.querySelector('[data-price-more]');
+  const more = button.closest('.price-panel')?.querySelector('[data-price-more]');
   if (!more) return;
   const open = more.classList.toggle('is-open');
   button.textContent = open ? 'Свернуть список' : 'Показать полный список';

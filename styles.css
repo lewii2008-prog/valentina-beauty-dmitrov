@@ -38,5 +38,61 @@
 .reveal-on-scroll{animation:none}.reveal-on-scroll.is-visible{animation:reveal-up .58s cubic-bezier(.22,.61,.36,1) both}.hero-portrait{animation:portrait-in .62s cubic-bezier(.22,.61,.36,1) both}.hero::after{animation:lash-line-in 1.2s ease-out both}.button,.filters button,.price-tabs button{transition:transform .18s ease,box-shadow .22s ease,background-color .22s ease,border-color .22s ease}.button:active,.filters button:active,.price-tabs button:active{transform:translateY(1px) scale(.985)}
 @keyframes reveal-up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}@keyframes portrait-in{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}@keyframes lash-line-in{from{opacity:0}to{opacity:1}}
 
+/* Targeted accessibility improvements for interactive controls. */
+.service-grid article>a{display:inline-flex;min-height:44px;align-items:center;padding:10px 0}
+@media(max-width:768px){.filters{flex-wrap:wrap}.filters button{min-height:44px}}
+@media(max-width:390px){.faq-list details{padding:3px 0}.faq-list summary{min-height:44px;padding:9px 0}}
+
+/* Desktop composition refinements. */
+@media(min-width:1024px){
+  .site-header{min-height:72px}
+  .nav a{display:inline-flex;min-height:44px;align-items:center;padding:8px 5px;color:var(--graphite);font-weight:600}
+  .hero{gap:20px;padding-top:24px;padding-bottom:28px}
+  .hero-lead{margin:12px 0}
+  .hero-facts{gap:6px;margin:13px 0}
+  .booking-form{padding:16px}
+  .form-heading{margin-bottom:8px}
+  .booking-form label{margin:5px 0}
+  .booking-form input,.booking-form select,.booking-form textarea{min-height:44px;padding:7px 10px}
+  .booking-form>.button{min-height:44px;margin-top:7px}
+  .form-phone{margin-top:7px}
+  .service-grid article{min-height:350px;padding:18px;grid-template-rows:96px auto auto 1fr auto auto}
+  .service-illustration,.service-card-image>img{height:96px}
+  .service-grid h3{margin:12px 0 7px}
+  .service-grid p{margin-bottom:10px}
+  .service-grid article>div{padding-top:10px}
+  .service-grid article>a{margin-top:4px;padding:6px 0}
+  .price-tabs button{font-size:.84rem;font-weight:750}
+  .price-panel{padding:10px 28px}
+  .price-row{padding:14px 4px;border-bottom-color:rgba(79,86,62,.26)}
+  .price-row b{font-size:1rem;font-weight:750}
+  .price-row strong{font-size:1.04rem;font-weight:800}
+  .about{gap:32px;align-items:start}
+  .certificates{align-self:start}
+  .certificate-grid button{height:315px}
+  #faq{padding-top:44px;padding-bottom:40px}
+  .faq-list details{padding:0}
+  .faq-list summary{min-height:44px;padding:8px 0}
+  .faq-list p{margin:0 0 12px}
+}
+@media(min-width:1200px){
+  .hero{grid-template-columns:minmax(0,1fr) 315px 295px;gap:24px}
+  .hero-portrait img{height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top}
+}
+@media(min-width:1024px) and (max-width:1199px){
+  .hero{grid-template-columns:minmax(0,1fr) 260px 290px;gap:18px;padding-top:26px;padding-bottom:30px}
+  .hero-portrait img{height:auto;aspect-ratio:4/5;object-fit:cover;object-position:center top}
+}
+
+/* About section: clearer benefits and certificate hierarchy. */
+.about-copy ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:22px}
+.about-copy li{min-width:0;min-height:72px;display:flex;align-items:center;gap:9px;padding:12px;border-radius:16px;background:rgba(255,253,249,.78);font-size:.72rem;line-height:1.35}
+.about-copy li svg{width:26px;height:26px;flex:0 0 26px;fill:none;stroke:var(--olive);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.about-copy li span{min-width:0}
+.certificate-heading{align-items:flex-start;margin-bottom:14px}
+@media(min-width:901px){#about{padding-bottom:64px}.certificates{align-self:start}}
+@media(min-width:901px) and (max-width:1199px){.about-copy ul{grid-template-columns:1fr}.about-copy li{min-height:52px}}
+@media(max-width:520px){.about-copy ul{grid-template-columns:1fr}.about-copy li{min-height:52px}}
+
 
 
